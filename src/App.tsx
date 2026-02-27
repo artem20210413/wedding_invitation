@@ -148,6 +148,9 @@ export default function App() {
             <p className="text-stone-600">
               Ваша присутність — найкращий подарунок. Але якщо ви хочете подарувати щось більше, ми будемо вдячні за внесок у нашу майбутню подорож.
             </p>
+            <p className="text-stone-600 mt-4">
+              Також ви можете переглянути наш <a href="https://rewish.io/fyoHAA" target="_blank" rel="noopener noreferrer" className="text-wedding-gold underline hover:no-underline">вішліст</a>.
+            </p>
           </motion.div>
 
           <motion.div 

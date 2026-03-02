@@ -11,8 +11,9 @@ export default function App() {
   const weddingDate = "2026-05-30T13:15:00.000Z";
   const weddingEndDate = "2026-05-30T23:00:00.000Z";
 
-  const galleryImages = [1, 2, 3, 4, 3, 4, 1, 2, 3, 4, 3, 4].map((seed, i) => ({
-    src: `https://picsum.photos/seed/wedding-story-${seed}/600/800`,
+  const galleryImages = ["001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011", "012", "013", "014",].map((seed, i) => ({
+    // src: `https://picsum.photos/seed/wedding-story-${seed}/600/800`,
+    src: `/images/${seed}.webp`, 
     alt: `Story ${i + 1}`
   }));
 
@@ -43,7 +44,8 @@ export default function App() {
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://picsum.photos/seed/wedding1/1920/1080?blur=2"
+            // src="https://picsum.photos/seed/wedding1/1920/1080?blur=2"
+            src="/images/background.webp"
             alt="Wedding Background"
             className="w-full h-full object-cover opacity-40"
             referrerPolicy="no-referrer"
@@ -88,7 +90,7 @@ export default function App() {
           className="space-y-8"
         >
           <h2 className="text-4xl font-serif text-stone-800">Дорогі друзі та рідні!</h2>
-          <p className="text-lg text-stone-600 leading-relaxed">
+          <p className="text-xl font-serif text-stone-600 leading-relaxed">
             Ми з великою радістю запрошуємо вас розділити з нами цей особливий день. 
             Ваша присутність зробить наше свято по-справжньому незабутнім. 
             Давайте разом створимо історію нашого кохання!
@@ -107,10 +109,10 @@ export default function App() {
       </section>
 
       {/* Interactive Scratch Card */}
-      <section className="bg-stone-100 py-24 px-6">
+      {/* <section className="bg-stone-100 py-24 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-serif text-stone-800 mb-4">Таємний блок</h2>
-          <p className="text-stone-600 mb-12">Зітріть захисний шар, щоб дізнатись пароль, на вечірці будуть питати!</p>
+          <p className="text-xl font-serif text-xl font-seriftext-stone-600 mb-12">Зітріть захисний шар, щоб дізнатись пароль, на вечірці будуть питати!</p>
           
           <div className="flex justify-center">
             <ScratchCard width={320} height={180}>
@@ -121,21 +123,22 @@ export default function App() {
             </ScratchCard>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Details Grid */}
-      <section className="py-24 px-6 max-w-6xl mx-auto">
+      <section className="py-16 px-6 max-w-6xl mx-auto">
         <div className="grid md:grid-cols-3 gap-12">
           <motion.div 
             whileHover={{ y: -5 }}
             className="p-8 bg-white rounded-3xl shadow-sm border border-stone-100 text-center"
           >
             <Clock className="w-10 h-10 text-wedding-gold mx-auto mb-6" />
-            <h3 className="text-xl font-serif mb-4">Розклад</h3>
-            <ul className="text-stone-600 space-y-2">
+            <h3 className="text-2xl font-serif mb-4">Розклад</h3>
+            <ul className="text-xl font-serif text-stone-600 space-y-2">
               <li>13:30 — Церемонія</li>
-              <li>14:30 — Фуршет</li>
+              <li>14:00 — Фуршет</li>
               <li>15:30 — Банкет</li>
+              <li>22:30 — Кінець</li>
             </ul>
           </motion.div>
 
@@ -144,12 +147,23 @@ export default function App() {
             className="p-8 bg-white rounded-3xl shadow-sm border border-stone-100 text-center"
           >
             <Gift className="w-10 h-10 text-wedding-gold mx-auto mb-6" />
-            <h3 className="text-xl font-serif mb-4">Побажання</h3>
-            <p className="text-stone-600">
-              Ваша присутність — найкращий подарунок. Але якщо ви хочете подарувати щось більше, ми будемо вдячні за внесок у нашу майбутню подорож.
+            <h3 className="text-2xl font-serif mb-4">Побажання</h3>
+
+            <p className="text-xl font-serif text-stone-600 leading-relaxed">
+              Найкращий подарунок для нас — ваша присутність. 
+              А якщо захочете зробити ще один теплий внесок, будемо вдячні за підтримку нашого святкового вечора.
             </p>
-            <p className="text-stone-600 mt-4">
-              Також ви можете переглянути наш <a href="https://rewish.io/fyoHAA" target="_blank" rel="noopener noreferrer" className="text-wedding-gold underline hover:no-underline">вішліст</a>.
+
+            <p className="text-xl font-serif text-stone-600 mt-6">
+              Або можете обрати щось із нашого  
+              <a 
+                href="https://rewish.io/fyoHAA" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-wedding-gold underline hover:no-underline"
+              >
+                 вішліста
+              </a>.
             </p>
           </motion.div>
 
@@ -158,9 +172,9 @@ export default function App() {
             className="p-8 bg-white rounded-3xl shadow-sm border border-stone-100 text-center"
           >
             <Music className="w-10 h-10 text-wedding-gold mx-auto mb-6" />
-            <h3 className="text-xl font-serif mb-4">Дрес-код</h3>
-            <p className="text-stone-600">
-              Black Tie Optional. Ми будемо раді бачити вас у вечірньому вбранні. Основні кольори: золото, беж та оливковий.
+            <h3 className="text-2xl font-serif mb-4">Дрес-код</h3>
+            <p className="text-xl font-serif text-stone-600">
+              Будемо раді, якщо у своїх образах ви підтримаєте атмосферу свята — пастельні відтінки будь-яких кольорів будуть особливо доречними. Втім, найважливіше — ваш комфорт і гарний настрій
             </p>
           </motion.div>
         </div>
@@ -174,11 +188,11 @@ export default function App() {
       </section> */}
 
  {/* Map Section */}
-      <section className="py-24 px-6 bg-stone-50">
+      <section className="py-16 px-6 bg-stone-50 ">
         <div className="max-w-6xl mx-auto">
-          <div className="flex items-center gap-4 mb-12">
+          <div className="flex justify-center items-center gap-4 mb-12 text-center">
             <MapPin className="w-8 h-8 text-wedding-gold" />
-            <h2 className="text-4xl font-serif text-stone-800">Локація</h2>
+            <h2 className="text-4xl font-serif text-stone-800 ">Локація</h2>
           </div>
           
           <div className="grid lg:grid-cols-3 gap-12 items-center">
@@ -186,14 +200,14 @@ export default function App() {
               <div>
                 <h3 className="text-xl font-serif text-stone-800 mb-2">Ресторан "HayLoft 2.0"</h3>
                 <p
-                  className="text-stone-600 hover:text-wedding-gold transition-colors"
+                  className="text-xl font-serif text-stone-600 hover:text-wedding-gold transition-colors"
                 >Проспект Академіка Глушкова</p>
                 <a
                   href="https://maps.app.goo.gl/Ub84nYQ8G8occxmE8"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-stone-600 hover:text-wedding-gold transition-colors"
-                >Google Maps</a>
+                  className="text-xl font-serif text-stone-600 hover:text-wedding-gold"
+                >Google Maps (натисни сюди)</a>
               </div>
               {/* <div className="p-4 bg-white rounded-2xl border border-stone-200">
                 <p className="text-sm text-stone-500 italic">
@@ -224,9 +238,9 @@ export default function App() {
       </section>
 
       {/* Photo Gallery */}
-      <section className="py-24 px-6">
+      <section className="py-16 px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="flex items-center gap-4 mb-12">
+          <div className="flex justify-center items-center gap-4 mb-12">
             <Camera className="w-8 h-8 text-wedding-gold" />
             <h2 className="text-4xl font-serif text-stone-800">Наша історія</h2>
           </div>
@@ -301,7 +315,7 @@ export default function App() {
       {/* Footer */}
       <footer className="py-24 px-6 text-center border-t border-stone-200">
         <h2 className="text-4xl font-serif text-stone-800 mb-4">Чекаємо на вас!</h2>
-        <p className="text-stone-500 italic">З любов'ю, Артєм та Ольга</p>
+        <p className="text-xl font-serif text-stone-500 italic">З любов'ю, Артем та Ольга</p>
         <div className="mt-12 flex justify-center gap-2">
           <Heart className="w-4 h-4 text-wedding-rose fill-current" />
           <Heart className="w-4 h-4 text-wedding-rose fill-current" />

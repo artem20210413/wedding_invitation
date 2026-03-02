@@ -41,8 +41,8 @@ export const WeddingMap: React.FC<WeddingMapProps> = ({ center, zoom = 15, marke
           <Marker key={idx} position={marker.position}>
             <Popup>
               <div className="p-1">
-                <h4 className="font-bold text-stone-800">{marker.title}</h4>
-                <p className="text-sm text-stone-600">{marker.description}</p>
+                <h4 className="text-xl font-serif font-bold text-stone-800">{marker.title}</h4>
+                <p className="text-l font-serif text-sm text-stone-600">{marker.description}</p>
               </div>
             </Popup>
           </Marker>
